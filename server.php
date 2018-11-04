@@ -7,7 +7,7 @@ $email    = "";
 $errors = array(); 
 
 // connect to the database
-$db = mysqli_connect('localhost', 'root', 'aadi2912', 'lenden');
+$db = mysqli_connect('localhost', 'root', '24march1997', 'lenden');
 
 // REGISTER PART
 if (isset($_POST['reg_user'])) {
@@ -49,6 +49,7 @@ if (isset($_POST['reg_user'])) {
           VALUES('$username', '$email', '$password')";
     mysqli_query($db, $query);
     $_SESSION['username'] = $username;
+    $_SESSION['success'] = "You are now logged in";
     header('location: index.php');
   }
 }
@@ -80,4 +81,47 @@ if (isset($_POST['login_user'])) {
   }
 }
 
+//add posting part
+
+if (isset($_POST['post'])) {
+
+ $name = mysqli_real_escape_string($db, $_POST['contact_name']);
+  $email = mysqli_real_escape_string($db, $_POST['email']);
+  $title = mysqli_real_escape_string($db, $_POST['title']);
+  $phone = mysqli_real_escape_string($db, $_POST['m_number']);
+  $category = mysqli_real_escape_string($db, $_POST['CATEGORY']);
+  $price = mysqli_real_escape_string($db, $_POST['price']);
+ 
+
+
+  //error detection image is skipped however :(
+  if (empty($name)) { array_push($errors, "name is required"); }
+  if (empty($email)) { array_push($errors, "Email is required"); }
+  if (empty($title)) { array_push($errors, "title is required"); }
+  if (empty($phone)) { array_push($errors, "phone number is required"); }
+  if (empty($category)) { array_push($errors, "category is required"); }
+  if (empty($price)) { array_push($errors, "Price is required"); }
+  
+if (count($errors) == 0) {
+
+//echo $namecheck."is the user";   
+$check = getimagesize($_FILES["photo"]["tmp_name"]);
+    if($check !== false){
+        $image = $_FILES['photo']['tmp_name'];
+        $imgContent = addslashes(file_get_contents($image));
+
+$namecheck = $_SESSION['username'];
+
+$query = "INSERT INTO products(title,price,category,username,phone,email,image)VALUES ('$title','$price','$category','$namecheck','$phone','$email','$imgContent')";
+    
+     if (mysqli_query($db,$query)) {
+        echo "Table MyGuests inserted successfully";
+    } else {
+        echo "Error creating table: " . $conn->error;
+    } 
+}
+header('location: index.php');
+
+}
+}
 ?>

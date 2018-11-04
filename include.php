@@ -31,7 +31,7 @@
       </div>  
     <!--Search Area-->
     <div id = "search">
-    <form action="">
+    <form action="search.php" METHOD="POST">
       <input class = "search-area" type="text" name="text" placeholder="Search here">
       <input class = "search-button" type="submit" name="submit" value="SEARCH">
     </form>
@@ -43,13 +43,14 @@
 <div id = "user-menu">
 <div class="dropdown">
 <li class="dropbtn"><a href=""><strong><?php echo $_SESSION['username']; ?></strong> ⮟ </a></li>  <div class="dropdown-content">
-    <a href="#">My Ads</a>
+    <a href="myads.php">My Ads</a>
     <a href="#">Purchased</a>
     <a href="#">Sold</a>
     <a href="#">My Chats</a>
+    <a href="#">Wishlist</a>
+
 	<a href="index.php?logout='1'" >Logout</a>
   </div>
-<li><a href="#">Wishlist</a></li>
 
 </div>
 </div>

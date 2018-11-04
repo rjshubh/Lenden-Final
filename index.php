@@ -1,4 +1,6 @@
 <?php include('include.php') ?>
+<?php include('server.php') ?>
+
 <div class="slideshow-container">
 <div class="myslides fade">
 <div><img src="images/img1.jpg" width="100%" height="300"></div>
@@ -40,105 +42,161 @@
             <div class="prod-container">
                 <!--first product-->
 
-                <div class="prod-box">
-                    <img src="images-sell/mouse.jpg" width="300px" height="300px">
-                    <div class="prod-trans">
-                    <div class="prod-feature">
-                        <p style="font-size: 20px;"><b>Mouse</b></p>
-                            <p style="color:#fff;font-weight:bold;">Price : Rs. 300 </p>
-                            <input type="button" value="Add to wishlist">
-                            <input type="button" value="Tap to chat">
-                    </div>                      
-                    </div>
-                </div>
-                <div class="prod-box">
-                    <img src="images-sell/table.jpg" width="300px" height="300px">
-                    <div class="prod-trans">
-                    <div class="prod-feature">
-                        <p style="font-size: 20px;"><b>Table</b></p>
-                            <p style="color:#fff;font-weight:bold;">Price : Rs. 1200 </p>
-                            <input type="button" value="Add to wishlist">
-                            <input type="button" value="Tap to chat">
-                    </div>                      
-                    </div>
-                </div>
+                <?php 
+                    $query = ("SELECT * FROM products WHERE id = 1");
+                    $result = mysqli_query($db,$query);
+                    while ($row = mysqli_fetch_array($result)){
+                     echo '<div class="prod-box">';
+                     echo'
+                        <img src="data:image/jpeg;base64,'.base64_encode($row['image']).'" width="300px" height="300px"/>';   
 
-                <div class="prod-box">
-                    <img src="images-sell/watch.jpg" width="300px" height="300px">
-                    <div class="prod-trans">
-                    <div class="prod-feature">
-                        <p style="font-size: 20px;"><b>MI BAND 2</b></p>
-                            <p style="color:#fff;font-weight:bold;">Price : Rs. 1000 </p>
-                            <input type="button" value="Add to wishlist">
-                            <input type="button" value="Tap to chat">
+                    echo '<div class="prod-trans">';
+                    echo '<div class="prod-feature">';
+                    echo '<p style="font-size: 20px;"><b>'.$row["title"].'</b></p>';
+                    echo '<p style="color:#fff;font-weight:bold;">Rs'.$row["price"].' </p>';
+                    echo '<input type="button" value="Add to wishlist" onclick="wishlist.php">';
+                    echo '<input type="button" value="Tap to chat">';
+                    echo '</div>';                     
+                    echo '</div>';
+                    echo '</div>';
+                    }
+                    
+                    $query = ("SELECT * FROM products WHERE id = 2");
+                    $result = mysqli_query($db,$query);
+                    while ($row = mysqli_fetch_array($result)){
+                     echo '<div class="prod-box">';
+                     echo'
+                        <img src="data:image/jpeg;base64,'.base64_encode($row['image']).'" width="300px" height="300px"/>';   
 
-                    </div>                      
-                    </div>
-                </div>
-                
-                
+                    echo '<div class="prod-trans">';
+                    echo '<div class="prod-feature">';
+                       echo '<p style="font-size: 20px;"><b>'.$row["title"].'</b></p>';
+                           echo '<p style="color:#fff;font-weight:bold;">Rs'.$row["price"].' </p>';
+                            echo '<input type="button" value="Add to wishlist" onclick="wishlist.php">';
+                            echo '<input type="button" value="Tap to chat">';
+                    echo '</div>';                     
+                    echo '</div>';
+                    echo '</div>';
+                    }
 
-                <div class="prod-box">
-                    <img src="images-sell/cycle.jpg" width="300px" height="300px">
-                    <div class="prod-trans">
-                    <div class="prod-feature">
-                        <p style="font-size: 20px;"><b>Viva Cycle</b></p>
-                            <p style="color:#fff;font-weight:bold;">Price : Rs. 3000 </p>
-                            <input type="button" value="Add to wishlist">
-                            <input type="button" value="Tap to chat">
-                    </div>                      
-                    </div>
-                </div>
+                    $query = ("SELECT * FROM products WHERE id = 3");
+                    $result = mysqli_query($db,$query);
+                    while ($row = mysqli_fetch_array($result)){
+                     echo '<div class="prod-box">';
+                     echo'
+                        <img src="data:image/jpeg;base64,'.base64_encode($row['image']).'" width="300px" height="300px"/>';   
 
-                <div class="prod-box">
-                    <img src="images-sell/3pin.jpg" width="300px" height="300px">
-                    <div class="prod-trans">
-                    <div class="prod-feature">
-                        <p style="font-size: 20px;"><b>3 Pin plug</b></p>
-                            <p style="color:#fff;font-weight:bold;">Price : Rs. 75 </p>
-                            <input type="button" value="Add to wishlist">
-                            <input type="button" value="Tap to chat">
-                    </div>                      
-                    </div>
-                </div>
+                    echo '<div class="prod-trans">';
+                    echo '<div class="prod-feature">';
+                        echo '<p style="font-size: 20px;"><b>'.$row["title"].'</b></p>';
+                            echo '<p style="color:#fff;font-weight:bold;">Rs'.$row["price"].' </p>';
+                            echo '<input type="button" value="Add to wishlist" onclick="wishlist.php">';
+                            echo '<input type="button" value="Tap to chat">';
+                    echo '</div>';                     
+                    echo '</div>';
+                    echo '</div>';
+                    }
 
-                <div class="prod-box">
-                    <img src="images-sell/shoe.jpg" width="300px" height="300px">
-                    <div class="prod-trans">
-                    <div class="prod-feature">
-                        <p style="font-size: 20px;"><b>Nike Shoes</b></p>
-                            <p style="color:#fff;font-weight:bold;">Price : Rs. 1500 </p>
-                            <input type="button" value="Add to wishlist">
-                            <input type="button" value="Tap to chat">
-                    </div>                      
-                    </div>
-                </div>
+                    $query = ("SELECT * FROM products WHERE id = 4");
+                    $result = mysqli_query($db,$query);
+                    while ($row = mysqli_fetch_array($result)){
+                     echo '<div class="prod-box">';
+                     echo'
+                        <img src="data:image/jpeg;base64,'.base64_encode($row['image']).'" width="300px" height="300px"/>';   
 
-                <div class="prod-box">
-                    <img src="images-sell/calculator.jpg" width="300px" height="300px">
-                    <div class="prod-trans">
-                    <div class="prod-feature">
-                        <p style="font-size: 20px;"><b>Calculator</b></p>
-                            <p style="color:#fff;font-weight:bold;">Price : Rs. 500 </p>
-                            <input type="button" value="Add to wishlist">
-                            <input type="button" value="Tap to chat">
-                    </div>                      
-                    </div>
-                </div>
+                    echo '<div class="prod-trans">';
+                    echo '<div class="prod-feature">';
+                        echo '<p style="font-size: 20px;"><b>'.$row["title"].'</b></p>';
+                            echo '<p style="color:#fff;font-weight:bold;">Rs'.$row["price"].' </p>';
+                            echo '<input type="button" value="Add to wishlist" onclick="wishlist.php">';
+                            echo '<input type="button" value="Tap to chat">';
+                    echo '</div>';                     
+                    echo '</div>';
+                    echo '</div>';
+                    }
 
-                <div class="prod-box">
-                    <img src="images-sell/charger.jpg" width="300px" height="300px">
-                    <div class="prod-trans">
-                    <div class="prod-feature">
-                        <p style="font-size: 20px;"><b>Moto Original Charger</b></p>
-                            <p style="color:#fff;font-weight:bold;">Price : Rs. 500 </p>
-                            <input type="button" value="Add to wishlist">
-                            <input type="button" value="Tap to chat">
-                    </div>                      
-                    </div>
-                </div>
 
-                </div>
+
+
+                    $query = ("SELECT * FROM products WHERE id = 5");
+                    $result = mysqli_query($db,$query);
+                    while ($row = mysqli_fetch_array($result)){
+                     echo '<div class="prod-box">';
+                     echo'
+                        <img src="data:image/jpeg;base64,'.base64_encode($row['image']).'" width="300px" height="300px"/>';   
+
+                    echo '<div class="prod-trans">';
+                    echo '<div class="prod-feature">';
+                        echo '<p style="font-size: 20px;"><b>'.$row["title"].'</b></p>';
+                            echo '<p style="color:#fff;font-weight:bold;">Rs'.$row["price"].' </p>';
+                            echo '<input type="button" value="Add to wishlist" onclick="wishlist.php">';
+                            echo '<input type="button" value="Tap to chat">';
+                    echo '</div>';                     
+                    echo '</div>';
+                    echo '</div>';
+                    }
+
+
+
+                    $query = ("SELECT * FROM products WHERE id = 6");
+                    $result = mysqli_query($db,$query);
+                    while ($row = mysqli_fetch_array($result)){
+                     echo '<div class="prod-box">';
+                     echo'
+                        <img src="data:image/jpeg;base64,'.base64_encode($row['image']).'" width="300px" height="300px"/>';   
+
+                    echo '<div class="prod-trans">';
+                    echo '<div class="prod-feature">';
+                        echo '<p style="font-size: 20px;"><b>'.$row["title"].'</b></p>';
+                            echo '<p style="color:#fff;font-weight:bold;">Rs'.$row["price"].' </p>';
+                            echo '<input type="button" value="Add to wishlist" onclick="wishlist.php">';
+                            echo '<input type="button" value="Tap to chat">';
+                    echo '</div>';                     
+                    echo '</div>';
+                    echo '</div>';
+                    }
+
+
+
+                    $query = ("SELECT * FROM products WHERE id = 7");
+                    $result = mysqli_query($db,$query);
+                    while ($row = mysqli_fetch_array($result)){
+                     echo '<div class="prod-box">';
+                     echo'
+                        <img src="data:image/jpeg;base64,'.base64_encode($row['image']).'" width="300px" height="300px"/>';   
+
+                    echo '<div class="prod-trans">';
+                    echo '<div class="prod-feature">';
+                        echo '<p style="font-size: 20px;"><b>'.$row["title"].'</b></p>';
+                            echo '<p style="color:#fff;font-weight:bold;">Rs'.$row["price"].' </p>';
+                            echo '<input type="button" value="Add to wishlist" onclick="wishlist.php">';
+                            echo '<input type="button" value="Tap to chat">';
+                    echo '</div>';                     
+                    echo '</div>';
+                    echo '</div>';
+                    }
+
+
+
+                    $query = ("SELECT * FROM products WHERE id = 8");
+                    $result = mysqli_query($db,$query);
+                    while ($row = mysqli_fetch_array($result)){
+                     echo '<div class="prod-box">';
+                     echo'
+                        <img src="data:image/jpeg;base64,'.base64_encode($row['image']).'" width="300px" height="300px"/>';   
+
+                    echo '<div class="prod-trans">';
+                    echo '<div class="prod-feature">';
+                        echo '<p style="font-size: 20px;"><b>'.$row["title"].'</b></p>';
+                            echo '<p style="color:#fff;font-weight:bold;">Rs'.$row["price"].' </p>';
+                            echo '<input type="button" value="Add to wishlist" onclick="wishlist.php">';
+                            echo '<input type="button" value="Tap to chat">';
+                    echo '</div>';                     
+                    echo '</div>';
+                    echo '</div>';
+                    }
+
+                ?>
 
             <!-- <div id = "footer">
             <div class = "container3">

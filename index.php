@@ -1,5 +1,6 @@
 <?php include('include.php') ?>
 <?php include('server.php') ?>
+<?php $_SESSION['id'] = ""; ?>
 
 <div class="slideshow-container">
 <div class="myslides fade">
@@ -54,11 +55,17 @@
                     echo '<div class="prod-feature">';
                     echo '<p style="font-size: 20px;"><b>'.$row["title"].'</b></p>';
                     echo '<p style="color:#fff;font-weight:bold;">Rs'.$row["price"].' </p>';
-                    echo '<input type="button" value="Add to wishlist" onclick="wishlist.php">';
-                    echo '<input type="button" value="Tap to chat">';
+                    ?>
+                    <a href="wishlist.php?id=<?php echo $row['id'] ?>"><input type="button" value="Add to wishlist" ></a>;
+                    <?php
+                            echo '<input type="button" value="Tap to chat">';
                     echo '</div>';                     
                     echo '</div>';
                     echo '</div>';
+                    
+
+
+
                     }
                     
                     $query = ("SELECT * FROM products WHERE id = 2");
@@ -70,14 +77,16 @@
 
                     echo '<div class="prod-trans">';
                     echo '<div class="prod-feature">';
-                       echo '<p style="font-size: 20px;"><b>'.$row["title"].'</b></p>';
-                           echo '<p style="color:#fff;font-weight:bold;">Rs'.$row["price"].' </p>';
-                            echo '<input type="button" value="Add to wishlist" onclick="wishlist.php">';
+                    echo '<p style="font-size: 20px;"><b>'.$row["title"].'</b></p>';
+                    echo '<p style="color:#fff;font-weight:bold;">Rs'.$row["price"].' </p>';
+                    ?>
+                    <a href="wishlist.php?id=<?php echo $row['id'] ?>"><input type="button" value="Add to wishlist" ></a>;
+                    <?php
                             echo '<input type="button" value="Tap to chat">';
                     echo '</div>';                     
                     echo '</div>';
                     echo '</div>';
-                    }
+                }
 
                     $query = ("SELECT * FROM products WHERE id = 3");
                     $result = mysqli_query($db,$query);
@@ -88,16 +97,18 @@
 
                     echo '<div class="prod-trans">';
                     echo '<div class="prod-feature">';
-                        echo '<p style="font-size: 20px;"><b>'.$row["title"].'</b></p>';
-                            echo '<p style="color:#fff;font-weight:bold;">Rs'.$row["price"].' </p>';
-                            echo '<input type="button" value="Add to wishlist" onclick="wishlist.php">';
+                    echo '<p style="font-size: 20px;"><b>'.$row["title"].'</b></p>';
+                    echo '<p style="color:#fff;font-weight:bold;">Rs'.$row["price"].' </p>';
+                    ?>
+                    <a href="wishlist.php?id=<?php echo $row['id'] ?>"><input type="button" value="Add to wishlist" ></a>;
+                    <?php
                             echo '<input type="button" value="Tap to chat">';
                     echo '</div>';                     
                     echo '</div>';
                     echo '</div>';
                     }
 
-                    $query = ("SELECT * FROM products WHERE id = 4");
+                      $query = ("SELECT * FROM products WHERE id = 4");
                     $result = mysqli_query($db,$query);
                     while ($row = mysqli_fetch_array($result)){
                      echo '<div class="prod-box">';
@@ -106,15 +117,16 @@
 
                     echo '<div class="prod-trans">';
                     echo '<div class="prod-feature">';
-                        echo '<p style="font-size: 20px;"><b>'.$row["title"].'</b></p>';
-                            echo '<p style="color:#fff;font-weight:bold;">Rs'.$row["price"].' </p>';
-                            echo '<input type="button" value="Add to wishlist" onclick="wishlist.php">';
+                    echo '<p style="font-size: 20px;"><b>'.$row["title"].'</b></p>';
+                    echo '<p style="color:#fff;font-weight:bold;">Rs'.$row["price"].' </p>';
+                    ?>
+                    <a href="wishlist.php?id=<?php echo $row['id'] ?>"><input type="button" value="Add to wishlist" ></a>;
+                    <?php
                             echo '<input type="button" value="Tap to chat">';
                     echo '</div>';                     
                     echo '</div>';
                     echo '</div>';
                     }
-
 
 
 
@@ -127,15 +139,16 @@
 
                     echo '<div class="prod-trans">';
                     echo '<div class="prod-feature">';
-                        echo '<p style="font-size: 20px;"><b>'.$row["title"].'</b></p>';
-                            echo '<p style="color:#fff;font-weight:bold;">Rs'.$row["price"].' </p>';
-                            echo '<input type="button" value="Add to wishlist" onclick="wishlist.php">';
+                    echo '<p style="font-size: 20px;"><b>'.$row["title"].'</b></p>';
+                    echo '<p style="color:#fff;font-weight:bold;">Rs'.$row["price"].' </p>';
+                    ?>
+                    <a href="wishlist.php?id=<?php echo $row['id'] ?>"><input type="button" value="Add to wishlist" ></a>;
+                    <?php
                             echo '<input type="button" value="Tap to chat">';
                     echo '</div>';                     
                     echo '</div>';
                     echo '</div>';
                     }
-
 
 
                     $query = ("SELECT * FROM products WHERE id = 6");
@@ -147,9 +160,11 @@
 
                     echo '<div class="prod-trans">';
                     echo '<div class="prod-feature">';
-                        echo '<p style="font-size: 20px;"><b>'.$row["title"].'</b></p>';
-                            echo '<p style="color:#fff;font-weight:bold;">Rs'.$row["price"].' </p>';
-                            echo '<input type="button" value="Add to wishlist" onclick="wishlist.php">';
+                    echo '<p style="font-size: 20px;"><b>'.$row["title"].'</b></p>';
+                    echo '<p style="color:#fff;font-weight:bold;">Rs'.$row["price"].' </p>';
+                    ?>
+                    <a href="wishlist.php?id=<?php echo $row['id'] ?>"><input type="button" value="Add to wishlist" ></a>;
+                    <?php
                             echo '<input type="button" value="Tap to chat">';
                     echo '</div>';                     
                     echo '</div>';
@@ -167,9 +182,11 @@
 
                     echo '<div class="prod-trans">';
                     echo '<div class="prod-feature">';
-                        echo '<p style="font-size: 20px;"><b>'.$row["title"].'</b></p>';
-                            echo '<p style="color:#fff;font-weight:bold;">Rs'.$row["price"].' </p>';
-                            echo '<input type="button" value="Add to wishlist" onclick="wishlist.php">';
+                    echo '<p style="font-size: 20px;"><b>'.$row["title"].'</b></p>';
+                    echo '<p style="color:#fff;font-weight:bold;">Rs'.$row["price"].' </p>';
+                    ?>
+                    <a href="wishlist.php?id=<?php echo $row['id'] ?>"><input type="button" value="Add to wishlist" ></a>;
+                    <?php
                             echo '<input type="button" value="Tap to chat">';
                     echo '</div>';                     
                     echo '</div>';
@@ -187,14 +204,15 @@
 
                     echo '<div class="prod-trans">';
                     echo '<div class="prod-feature">';
-                        echo '<p style="font-size: 20px;"><b>'.$row["title"].'</b></p>';
-                            echo '<p style="color:#fff;font-weight:bold;">Rs'.$row["price"].' </p>';
-                            echo '<input type="button" value="Add to wishlist" onclick="wishlist.php">';
+                    echo '<p style="font-size: 20px;"><b>'.$row["title"].'</b></p>';
+                    echo '<p style="color:#fff;font-weight:bold;">Rs'.$row["price"].' </p>';
+                    ?>
+                    <a href="wishlist.php?id=<?php echo $row['id'] ?>"><input type="button" value="Add to wishlist" ></a>;
+                    <?php
                             echo '<input type="button" value="Tap to chat">';
                     echo '</div>';                     
                     echo '</div>';
-                    echo '</div>';
-                    }
+                    echo '</div>';}
 
                 ?>
 

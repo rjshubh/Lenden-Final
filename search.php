@@ -2,7 +2,7 @@
 <?php include('server.php') ?>
 <link rel="stylesheet" type="text/css" href="css/style3.css">
 <?php
-if (isset($_POST['search'])) {
+if (isset($_POST['submit'])) {
 $text= mysqli_real_escape_string($db, $_POST['text']);
 
 $query = ("SELECT * FROM products WHERE title LIKE '%$text%'");

@@ -47,7 +47,7 @@
     <a href="#">Purchased</a>
     <a href="#">Sold</a>
     <a href="#">My Chats</a>
-    <a href="#">Wishlist</a>
+    <a href="wishlist.php">Wishlist</a>
 
 	<a href="index.php?logout='1'" >Logout</a>
   </div>
